@@ -1,0 +1,65 @@
+1)Comparing two json have the same properties without order:
+var obj1 = {
+    name: 'Person 1',
+    age: 5
+  };    
+  var obj2 = {
+    age: 5,
+    name: 'Person 1'
+  };  
+  JSON.stringify(obj1) === JSON.stringify(obj2)
+  console.log(obj1,obj2);
+
+2) Rest countries and display all the countries Flag:
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // countries flag
+        var request = new XMLHttpRequest();
+         request.open('GET','https://restcountries.com/v3.1/all',true) 
+         request.send();
+         request.onload= function(){
+        var data = JSON.parse(request.response)
+        for(let i=0;i<data.length;i++){
+        console.log(data[i].flags);
+        }
+         }
+    </script>
+</body>
+</html>
+
+3)Rest countries and display all the countries Name,Region,Subregion,Population:
+// Name,Region,Subregion,Population
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var request = new XMLHttpRequest();
+         request.open('GET','https://restcountries.com/v3.1/all',true)
+         request.send();
+         request.onload= function(){
+        var data = JSON.parse(request.response)
+        for(let i=0;i<data.length;i++){
+        console.log(data[i].name);
+        console.log(data[i].region);
+        console.log(data[i].subregion);
+        console.log(data[i].population);
+        }
+         }
+    </script>
+</body>
+</html>
